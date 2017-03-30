@@ -1,0 +1,44 @@
+<ion-view view-title="Review">
+  <ion-content class="padding" id="review">
+      <button ng-click="choosePhoto()" class="button button-block button-primary">Adicionar uma outra foto</button>
+      <img ng-src="{{cameraPhoto || '//:0'}}" style="width: 100%">
+        <div id="ratingArea">
+            <rating ng-model="review.rating.rate" max="5" ng-class="{'red-rate': review.rating.rate == 0}"></rating>
+        </div>
+        <div id="locationArea" class="list" ng-click="goSearch()">
+            <form class="form">
+                <label class="item item-input">
+                    <i class="ion-ios-location-outline"></i>
+                    <div class="review-place">
+                        <span ng-if="!review.place">Em qual restaurante você está?</span>
+                        {{review.place.name}} 
+                    </div>
+                </label>
+            </form>
+        </div>
+        <div id="dishArea" class="list">
+            <label class="item item-input">
+            <i class="ion-fork"></i>
+            <i class="ion-knife"></i>
+            <input type="text" placeholder="Qual é o nome do prato no menu?" ng-model="review.dishName" style="width: 100%">
+            </label>
+        </div>
+        <div id="priceArea" class="list">
+          <label class="item item-input">
+            <i class="ion-social-usd"></i>
+            <input type="number" placeholder="Ex: 29.90" ng-model="review.dishPrice" style="width: 100%">
+          </label>
+        </div>
+      <div id="commetArea" class="list">
+            <label class="item item-input">
+                <i class="ion-ios-chatbubble-outline"></i>
+                <input type="text" ng-model="review.comment" placeholder=" O que achou?">
+            </label>
+      </div>
+        <div class="avaliar">
+            <button ng-click="upload(review)" class="button" ng-disabled="!review.dishName || !review.place || !review.rating.rate || !review.photo || !review.dishPrice">
+            <span>Avaliar!</span>
+            </button>
+        </div>
+  </ion-content>
+</ion-view>

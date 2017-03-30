@@ -1,0 +1,28 @@
+<ion-view hide-nav-bar="true">
+  <ion-content id="login" scroll="false">
+    <div class="layer">
+        <div class="top">
+            <img src="img/logo_site.png"/>
+        </div>
+        <div class="bottom">
+            <div ng-hide="authData" ng-click="login('facebook')">
+              <button class="loginFB">
+                <i class="ion-social-facebook"></i> Login com Facebook
+              </button>
+            </div>
+
+            <div ng-hide="authData" ng-click="login('google')">
+              <button class="loginGoogle">
+                <i class="ion-social-googleplus"></i> Login com Google
+              </button>
+            </div>
+
+            <div ng-show="authData">
+              <h3>
+                Bem-vindo {{authData[authData.provider].displayName}}!
+              </h3>
+            </div>
+        </div>
+    </div>
+  </ion-content>
+</ion-view>

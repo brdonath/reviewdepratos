@@ -1,0 +1,18 @@
+<ion-view view-title="Buscar">
+  <ion-content class="padding" id="search" scroll="false">
+    <div class="list">
+        <form class="form">
+            <label class="item item-input">
+                <i class="ion-ios-location-outline"></i>
+                <input type="text" placeholder="Pesquisar restaurante.."
+                 g-places-autocomplete options="autocompleteOptions" control="control"
+                 ng-model="place" ng-change="changed(place)" style="width: 100%" ng-click="place = null"/>
+            </label>
+        </form>
+    </div>
+    <div class="pesquisa-lugares">
+         Reviews perto de você:
+    </div>
+     <div id="searchmap" class="searchmap"></div>
+  </ion-content>
+</ion-view>

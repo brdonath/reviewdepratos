@@ -1,0 +1,18 @@
+{
+  "android": {
+    "release": {
+      "keystore": "release-key.keystore",
+      "storePassword": "dish123456",
+      "alias": "dishing",
+      "password" : "dish123456",
+      "keystoreType": "jks"
+    },
+    "debug": {
+      "keystore": "debug.keystore",
+      "storePassword": "android",
+      "alias": "androiddebugkey",
+      "password" : "android",
+      "keystoreType": "jks"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<ion-view view-title=" <img src='img/logo_site.png' class='header-icon'>">
+  <ion-content id="feeds">
+    <ion-list>
+      <ion-item ng-repeat="review in reviews | orderBy : '-timestamp'" type="item-text-wrap">
+        <div class="padding vertical-center">
+          <div class="myavatar">
+            <img ng-src="{{review.user.imageURL}}">
+          </div>
+          <div ng-click="viewEstablishment(review.place.place_id)" class="mydata">
+            <div>
+              <span>{{review.user.name}}</span>
+              <span class="user">{{review.timestamp | date:'dd/MM HH:mm'}}</span>
+            </div>
+            <div class="myplace">
+              {{review.place.name}}
+            </div>
+          </div>
+          <div ng-click="optionsPhoto(review)" class="opcoes">
+            <i class="ion-android-more-vertical"></i>
+          </div>
+        </div>
+        <img ng-src="{{review.photo}}" class="full-image">
+        <label ng-if="review.dishPrice" class="price">${{review.dishPrice}}</label>
+        <div class="dish-name">{{review.dishName}}</div>
+        <rating readonly="true" ng-model="review.rating.rate" max="5" class="rating"></rating>
+        <div class="padding">
+          <span>{{review.comment}}</span>
+          <ion-list class="comentarios">
+            <ion-item ng-click="viewReview(review.key)"
+                      ng-show="review.comments"
+                      ng-repeat="comment in review.comments | toArray | orderBy : 'timestamp'">
+              <span class="user-comment">{{comment.userName}}</span>
+              <span class="comment">{{comment.comment}}</span>
+            </ion-item>
+          </ion-list>
+          <div class="comentar">
+            <input maxlength="140" type="text" ng-model="review.newComment" placeholder="comente... "
+                   ng-click="openPlane()" hide-plane="hidePlaneContainer()"/>
+            <button ng-click="uploadComment(review, review.newComment)" ng-show="userPlane">
+              <span class="ion-paper-airplane"></span>
+            </button>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+    <div ng-hide="reviewOnly">
+      <div class="carregando">
+        <ion-spinner icon="ios-small"></ion-spinner>
+        <span>Carregando...</span>
+      </div>
+      <ion-infinite-scroll ng-if="!noMoreItemsAvailable" on-infinite="loadMore()" distance="10%"></ion-infinite-scroll>
+    </div>
+  </ion-content>
+</ion-view>

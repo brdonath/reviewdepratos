@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
+
+  <link href="lib/ionic/release/css/ionic.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="lib/angular-google-places-autocomplete/src/autocomplete.css" rel="stylesheet" >
+  <link href='https://fonts.googleapis.com/css?family=Quattrocento+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+
+  <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+  <link href="css/ionic.app.css" rel="stylesheet">
+  -->
+
+  <!-- AWS -->
+  <script src="lib/aws-sdk/dist/aws-sdk.min.js"></script>
+
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/release/js/ionic.bundle.min.js"></script>
+
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="lib/ngCordova/dist/ng-cordova.min.js"></script>
+  <script src="cordova.js"></script>
+
+  <!-- Firebase -->
+  <script src="lib/firebase/firebase.js"></script>
+  <script src="lib/firebase-util/dist/firebase-util.min.js"></script>
+  <script src="lib/geofire/dist/geofire.min.js"></script>
+
+  <!-- AngularFire -->
+  <script src="lib/angularfire/dist/angularfire.min.js"></script>
+
+
+  <!-- your app's js -->
+  <script src="js/filters.js"></script>
+  <script src="js/directives.js"></script>
+  <script src="js/settings.js"></script>
+
+  <!-- Controllers -->
+  <script src="js/controllers/controllers.js"></script>
+  <script src="js/controllers/AccountController.js"></script>
+  <script src="js/controllers/EstablishmentController.js"></script>
+  <script src="js/controllers/FeedsController.js"></script>
+  <script src="js/controllers/ReviewController.js"></script>
+  <script src="js/controllers/ReviewSearchController.js"></script>
+  <script src="js/controllers/SearchController.js"></script>
+  <script src="js/controllers/SignInController.js"></script>
+
+  <!-- rest of code -->
+  <script src="js/app.js"></script>
+  <script src="js/services.js"></script>
+
+  <script src="lib/templates.js"></script>
+
+  <script src="lib/angular-google-places-autocomplete/src/autocomplete.js"></script>
+  <script src="lib/ionic-rating/ionic-rating.min.js"></script>
+</head>
+
+<body ng-app="starter">
+<!--
+  The nav bar that will be updated as we navigate between views.
+-->
+<ion-nav-bar class="bar-stable">
+  <ion-nav-back-button>
+  </ion-nav-back-button>
+</ion-nav-bar>
+<!--
+  The views will be rendered in the <ion-nav-view> directive below
+  Templates are in the /templates folder (but you could also
+  have templates inline in this html file if you'd like).
+-->
+<ion-nav-view>
+</ion-nav-view>
+<script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCXrlZ8kXK5eJFFi-PWZe1TGhoJ4RLh_qg"></script>
+</body>
+
+</html>

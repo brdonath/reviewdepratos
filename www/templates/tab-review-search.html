@@ -1,0 +1,45 @@
+<ion-view view-title="Restaurante">
+  <ion-content class="padding" id="search">
+    <div class="list">
+        <form class="form">
+            <label class="item item-input">
+                <i class="ion-ios-location-outline"></i>
+                <input type="text" placeholder="Pesquisar restaurante... ou selecione um abaixo"
+                 g-places-autocomplete options="autocompleteOptions" control="control"
+                 ng-model="place" ng-change="placeSelected(place)" style="width: 100%" ng-click="place = null" 
+                 ng-keydown="search($event, place)"/>
+            </label>
+        </form>
+    </div>
+     <div ng-if="noResults" class="pesquisa-lugares">
+         A pesquisa não retornou resultados.
+     </div>
+     <div ng-show="searchPlaces">
+        <div class="pesquisa-lugares">
+            Resultado da Pesquisa: 
+        </div>
+        <ion-list>
+            <ion-item ng-repeat="place in searchPlaces" ng-click="placeSelected(place)">
+                <span class="placeName">{{place.name + ' '}}</span>
+                <span>-</span>
+                <span class="placeAddress">{{' ' + place.formatted_address}}</span>
+            </ion-item>
+        </ion-list>
+    </div>
+    <div ng-if="!nearbyPlaces">
+         <ion-spinner icon="ios-small"></ion-spinner> Buscando lugares próximos...
+     </div>
+    <div ng-show="nearbyPlaces">
+        <div class="pesquisa-lugares">
+         Lugares Próximos:
+        </div> 
+        <ion-list>
+            <ion-item ng-repeat="place in nearbyPlaces" ng-click="placeSelected(place)">
+                <span class="placeName">{{place.name + ' '}}</span>
+                <span>-</span>
+                <span class="placeAddress">{{' ' + place.vicinity}}</span>
+            </ion-item>
+        </ion-list>
+    </div>
+  </ion-content>
+</ion-view>

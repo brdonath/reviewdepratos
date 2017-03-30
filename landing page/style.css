@@ -1,0 +1,162 @@
+body {
+    font-family: 'Quattrocento Sans', sans-serif!important;
+    margin: 0;
+    background: url(desktopbg.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    color: #fff;
+}
+
+.layer {
+    background:rgba(39,39,41, 0.8);
+    width:100%;
+    min-height:100vh;
+    height: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.content {
+    width: 60%;
+}
+
+.phone {
+    width: 40%;
+}
+
+.vertical-center {
+  display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    -moz-box-orient: horizontal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-box-pack: left;
+    -moz-box-pack: left;
+    -webkit-justify-content: left;
+    -ms-flex-pack: left;
+    justify-content: left;
+    -webkit-align-content: stretch;
+    -ms-flex-line-pack: stretch;
+    align-content: stretch;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.logo {
+    text-align: center;
+    font-size: 28px;
+    padding-top: 10%;
+}
+
+.logo>div {
+    width: 50%;
+}
+
+.logo img {
+    height: 65px;
+}
+
+.logo h1 {
+    margin: 10px;
+}
+
+.icon {
+    text-align: right;
+}
+
+.title {
+    text-align: left;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 30px;
+    margin-left: 135px;
+}
+
+.info {
+    margin-left: 30%;
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.info>div {
+    margin: 10px 0;
+}
+
+.download img {
+    margin-top: 30px;
+    margin-left: 30%;
+}
+
+.phone img {
+    position: fixed;
+    bottom: 0px;
+    max-width: 30%;
+    max-height: 100%;
+    width: auto;
+}
+
+@media (max-width: 768px) {
+    body {
+        background: url(mobilebg.jpg);
+    }
+    .layer {
+        display: block;
+    }
+    
+    .content, .phone {
+        width: 100%;
+    }
+    .phone {
+        padding-left: 11%;
+        box-sizing: border-box;
+    }
+    .phone img {
+        position: relative;
+        max-width: 100%;
+        bottom: -4px;
+        margin-top: 20px;
+    }
+    .logo {
+        margin-left: 13%;
+    }
+    .info {
+        margin-left: 10%;
+        margin-right: 6%;
+    }
+    .subtitle {
+        margin-left: 18%;
+        text-align: left;
+    }
+    .logo>div {
+        width: initial;
+    }
+    .download img {
+        margin-left: 27%;
+    }
+}
+
+@media (min-width: 1500px) {
+    .logo {
+        padding-top: 20%;
+    }   
+}

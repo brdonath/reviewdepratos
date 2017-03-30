@@ -1,0 +1,33 @@
+<ion-view>
+  <ion-nav-title>{{place.name}}</ion-nav-title>
+  <ion-content scroll="true" id="establishment">
+    <div id="photosCarousel">
+      <div id="map"></div>
+    </div>
+
+    <div ng-show="reviews.length == 0" style="text-align:center">
+      <button class="primeiro-review" ng-click="goReview()">Faça o primeiro review!</button>
+    </div>
+    <div id="reviewsBox" ng-show="reviews">
+      <div class="row" ng-repeat="review in reviews" ng-if="$index % 2 === 0">
+        <div class="col col-50" ng-if="$index < reviews.length" ng-click="viewReview(reviews[$index].key)" ng-style="imgHeigth">
+          <img ng-src="{{reviews[$index].photo}}" class="dish-img" ng-style="imgSize($index)" id="{{'img' + $index}}"/>
+          <label class="mini-price">${{reviews[$index].dishPrice}}</label>
+          <div class="myreview">
+              <div class="dish-name">{{reviews[$index].dishName}}</div>
+              <rating readonly="true" ng-model="reviews[$index].rating.rate" max="5" class="rating"></rating>
+          </div>
+        </div>
+        <div class="col col-50" ng-if="$index + 1 < reviews.length" ng-click='viewReview(reviews[$index + 1].key)'  ng-style="imgHeigth">
+          <img ng-src="{{reviews[$index + 1].photo}}" class="dish-img" ng-style="imgSize($index + 1)" id="{{'img' + ($index + 1)}}"/>
+          <label class="mini-price">${{reviews[$index + 1].dishPrice}}</label>
+            <div class="myreview">
+                <div class="dish-name">{{reviews[$index + 1].dishName}}</div>
+                <rating readonly="true" ng-model="reviews[$index + 1].rating.rate" max="5" class="rating"></rating>
+            </div>
+        </div>
+      </div>
+    </div>
+    <ion-infinite-scroll on-infinite="loadMore()" distance="1%"></ion-infinite-scroll>
+  </ion-content>
+</ion-view>

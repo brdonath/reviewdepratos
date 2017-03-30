@@ -1,0 +1,31 @@
+<ion-view view-title="Conta">
+  <ion-content id="account">
+    <ion-list>
+      <ion-item>
+        <ion-toggle ng-model="settings.enableNotifications" ng-change="setNotifications(settings.enableNotifications)">
+          Notificações
+        </ion-toggle>
+      </ion-item>
+        <ion-item ng-click="goMyReviews()">
+          Meus Reviews
+      </ion-item>
+        <ion-item ng-click="toggleFeedback()">
+            Feedback/Sugestões/Parcerias..
+        </ion-item>
+        <div class="item-accordion" ng-show="showFeedback">
+            <textarea ng-model="feedback" placeholder="Escreva seu feedback..">
+            </textarea>
+            <div class="feedbackBtn">
+                <ion-checkbox ng-model="anonymousFeedback" id="anonimo">
+            </ion-checkbox>
+                <span>Enviar anônimo?</span>
+                <button ng-disabled="!feedback" ng-click="sendFeedback(feedback, anonymousFeedback); feedback = null; anonymousFeedback = false;" class="button">Enviar</button>
+            </div>
+        </div>
+      <ion-item class="logout">
+          <span>Sair</span>
+          <i class="ion-log-out" ng-click="logout()"></i>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>
